@@ -5,3 +5,7 @@ Estoy llevando un curso de git y ahora voy a hacer un pequeño resumen de lo que
 Para la configuracionde git necesito usar los comandos
 	git config --global user.name
 	git config --global user.email
+
+	Debo configurar esto por 2 razones, la primera es que no me dejara hacer commits, y la segunda es que 
+	necesito identificar el equipo desde donde estoy haciendo los cambios para que asi quede un registro 
+	en la base de datos de cambios de git y saber quien realizó los mismos
