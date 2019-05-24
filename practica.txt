@@ -9,3 +9,24 @@ Para la configuracionde git necesito usar los comandos
 	Debo configurar esto por 2 razones, la primera es que no me dejara hacer commits, y la segunda es que 
 	necesito identificar el equipo desde donde estoy haciendo los cambios para que asi quede un registro 
 	en la base de datos de cambios de git y saber quien realizó los mismos
+
+En el mundo de git existen 3 conceptos principales los cuales son:
+	-Area de trabajo
+	-Staying Area
+	-Repositorio Local
+
+
+Cada vez que creamos nuevos archivos estos se quedan en el area de trabajo, pero si ejecutamos el comando "git status" git automaticamente nos mostrara con letras en color rojo los nombre de los archivos los cuales han sido creados o los archivos a los cuales se les han realizado modificaciones. Es decir que estos archivos existen en el area de trabajo mas no en el staying area.
+
+El staying area es una especie de limbo en donde los archivos se quedan, de forma mas concreta podemos decir que al ejecutar el comando git add "nombre del archivo con todo y su extension", estamos preparando el archivo para asi realizar un commit. Y en un sentido fisico estos archivos agregados al staying area se quedan estan en la memoria ram.
+
+El repositorio local es ese lugar a donde van los archivos despues de haberles realizado un commit. Para realizar un commit se usa el siguiente comando;
+	git commit
+
+Se puede realizar un commit con este comando, pero es 100% recomendable que por cada commit nosotros le incluyamos una nota a cerca de que es lo que se hizo en este archivo, como por ejemplo:
+	git commit -m "Este es un ejemplo de una nota"
+	(con -m estamos especificando que se va a realizar una nota y esta debe de ir en comillas dobles)
+
+De hecho si nosotros llegasemos a realizar un commit si insertar una nota, git automaticamente nos abrira el editor de texto por defecto, el cual es vim , en donde se nos dira que agreguemos una nota al commit realizado. Simplemente escribimos la nota y para salir de vim presionamos Esc, despues la letras wq y entonces enter.
+
+
