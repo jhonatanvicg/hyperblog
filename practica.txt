@@ -12,13 +12,13 @@ Para la configuracionde git necesito usar los comandos
 
 En el mundo de git existen 3 conceptos principales los cuales son:
 	-Area de trabajo
-	-Staying Area
+	-Staging Area
 	-Repositorio Local
 
 
-Cada vez que creamos nuevos archivos estos se quedan en el area de trabajo, pero si ejecutamos el comando "git status" git automaticamente nos mostrara con letras en color rojo los nombre de los archivos los cuales han sido creados o los archivos a los cuales se les han realizado modificaciones. Es decir que estos archivos existen en el area de trabajo mas no en el staying area.
+Cada vez que creamos nuevos archivos estos se quedan en el area de trabajo, pero si ejecutamos el comando "git status" git automaticamente nos mostrara con letras en color rojo los nombre de los archivos los cuales han sido creados o los archivos a los cuales se les han realizado modificaciones. Es decir que estos archivos existen en el area de trabajo mas no en el staging area.
 
-El staying area es una especie de limbo en donde los archivos se quedan, de forma mas concreta podemos decir que al ejecutar el comando git add "nombre del archivo con todo y su extension", estamos preparando el archivo para asi realizar un commit. Y en un sentido fisico estos archivos agregados al staying area se quedan estan en la memoria ram.
+El staging area es una especie de limbo en donde los archivos se quedan, de forma mas concreta podemos decir que al ejecutar el comando git add "nombre del archivo con todo y su extension", estamos preparando el archivo para asi realizar un commit. Y en un sentido fisico estos archivos agregados al staging area se quedan estan en la memoria ram.
 
 El repositorio local es ese lugar a donde van los archivos despues de haberles realizado un commit. Para realizar un commit se usa el siguiente comando;
 	git commit
@@ -28,5 +28,56 @@ Se puede realizar un commit con este comando, pero es 100% recomendable que por 
 	(con -m estamos especificando que se va a realizar una nota y esta debe de ir en comillas dobles)
 
 De hecho si nosotros llegasemos a realizar un commit si insertar una nota, git automaticamente nos abrira el editor de texto por defecto, el cual es vim , en donde se nos dira que agreguemos una nota al commit realizado. Simplemente escribimos la nota y para salir de vim presionamos Esc, despues la letras wq y entonces enter.
+
+Se me olvidaba mencionar que a lo que se hara commit es a los archivos a los que previamente se han agregado al staging area
+
+
+
+
+
+
+Una vez que hayamos realizado nuestros respectivos commits podemos usar el comando
+	git log
+
+El cual nos mostrara detalladamente cada uno de los commits que hemos realizado, en ello podremos ver
+la persona que realizo los commits, su correo, hora,fecha y la nota la cual se ha incluido.
+Tambien podremos notar una clave de 40 caracteres hexadecimales, esos caracteres son identificadores unicos de cada uno de los commits. La clave pertenece al protoclo SHA-1
+
+Las mencionadas claves de los commits nos pueden servir para ciertas cosas tales como
+
+	Ver la diferencia que ha habido en un archivo en su primer commit junto con el mismo archivo pero con modificaciones, el comando a utilizar es;
+	 git diff "clave sha-1 del primer archivo" "Clave sha-1 del otro archivo"
+
+
+	 Volver en el tiempo a un commit en especifico. Para esto utilizamos el comando 
+	 	git reset "clave sha-1 del commit al que queremos ir" --hard
+	 	git reset "clave sha-1 del commit al que queremos ir" --soft
+
+		 Como podemos ver existen 2 tipos de reset, hard y soft 
+		 Con hard, todo vuelve al estado en el que estaba el commit al que queremos realizar
+		 Si usamos soft, volvemos a la version aterior, pero lo que tengamos en staging sigue en staging, es decir si has hecho cambias y has hecho git add esto sigue disponible para el siguiente commit que se realice.
+
+		 Si queremos volver en el tiempo con hard, el archivo al que estamo realizando este reset volvera a como estaba, si no me creen ejecuten el comando git log y ahi podran ver que el ultimo que esta registrado el al commit que ustedes quisieron volver
+
+	Ver como era un archivo en su primer commit, esto con los comandos
+		git checkout "clave sha-1 del commit" "nombre del archivo con su extension"
+
+		Entonces podremos ver como era el archivo en sus inicios, cuidado con esto porque si realizamos un commit entonces estariamos guardando el archivo de como era en el commit al que fuimos a consultar.
+
+		Para evitar esto, realizamos el siguiente comando
+
+			git checkout master "nombre del archivo con todo y su extension"
+
+
+
+
+Si queremos ver las diferencias entre mi directorio actual y lo que hay en staging solo uso el comando
+	git diff
+
+
+Si se quiere ver los cambios especificos que se han realizado en los archivos se pueden usar el comando
+	git log --state
+
+
 
 
