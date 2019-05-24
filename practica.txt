@@ -1,1 +1,7 @@
 Hola soy Jhonatan Victorio Galvez
+
+Estoy llevando un curso de git y ahora voy a hacer un pequeño resumen de lo que he visto
+
+Para la configuracionde git necesito usar los comandos
+	git config --global user.name
+	git config --global user.email
